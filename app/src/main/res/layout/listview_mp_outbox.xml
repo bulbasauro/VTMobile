@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+    <com.daimajia.swipe.SwipeLayout
+        android:id="@+id/swipeLayout_mp_outbox"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Bottom View Start-->
+        <LinearLayout
+            android:id="@+id/bottom_wrapper_outbox_topicos"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:background="?attr/colorPrimary"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:weightSum="1">
+
+            <ImageView
+                android:id="@+id/imageView_mp_outbox_trash"
+                style="@style/Widget.AppCompat.ActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/trash"/>
+
+            <TextView
+                android:id="@+id/textView_mp_outbox_apagar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/apagar_mensagem"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold|italic"/>
+
+            <ImageButton
+                android:id="@+id/imageButton_mp_outbox_confirmarApagar"
+                style="@style/Widget.AppCompat.ActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/confirm"/>
+            <!--What you want to show-->
+        </LinearLayout>
+
+        <!-- Bottom View End-->
+
+        <!-- Surface View Start -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="12sp">
+            <!--What you want to show in SurfaceView-->
+
+            <TextView
+                android:id="@+id/textView_mp_outbox_assunto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:gravity="center_vertical"
+                android:text="Assunto da Mensagem"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/textView_mp_outbox_destinatario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView_mp_outbox_assunto"
+                android:text="Destinatário"
+                android:textColor="?attr/colorPrimaryDark"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/textView_mp_outbox_dataHoraEnviado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/textView_mp_outbox_destinatario"
+                android:layout_alignEnd="@+id/textView_mp_outbox_assunto"
+                android:layout_alignRight="@+id/textView_mp_outbox_assunto"
+                android:text="31/12/9999 24:59"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="10sp"/>
+
+        </RelativeLayout>
+        <!-- Surface View End -->
+
+    </com.daimajia.swipe.SwipeLayout>
+</RelativeLayout>

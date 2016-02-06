@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.bulbasauro.vtmobile.DetalheMpActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_menu"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:theme="@style/ToolbarStyle"/>
+
+    <ScrollView
+        android:id="@+id/scrollView_mp_detalhe"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar_menu"
+        android:layout_above="@+id/toolbar_mp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout_mp_detalhe"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:background="?attr/colorAccent"
+                android:orientation="vertical"
+                android:padding="10sp">
+
+                <TextView
+                    android:id="@+id/textView_mp_detalhe_assunto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:gravity="start|center_vertical"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/textView_mp_detalhe_autor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textView_mp_detalhe_assunto"
+                    android:gravity="start|center_vertical"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:id="@+id/textView_mp_detalhe_dataEnvio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/relativeLayout_mp_detalhe"
+                android:background="@color/white"
+                android:padding="10sp">
+
+                <ImageView
+                    android:id="@+id/imageView_mp_detalhe_avatar"
+                    android:layout_width="100px"
+                    android:layout_height="100px"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"/>
+
+                <TextView
+                    android:id="@+id/textView_mp_detalhe_corpo_autor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/imageView_mp_detalhe_avatar"
+                    android:layout_toRightOf="@+id/imageView_mp_detalhe_avatar"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_toStartOf="@+id/imageView_mp_detalhe_avatar"
+                    android:paddingRight="10dp"
+                    android:gravity="end|right"
+                    />
+
+                <WebView
+                    android:id="@+id/webView_mp_detalhe_corpo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/textView_mp_detalhe_corpo_autor"
+                    android:layout_below="@+id/textView_mp_detalhe_corpo_autor"
+                    android:layout_alignEnd="@+id/textView_mp_detalhe_corpo_autor"/>
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_mp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:background="?attr/colorPrimary">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="16sp"
+            android:layout_marginRight="16sp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView_toolbar_mp_detalhe_apagar"
+                style="@style/Widget.AppCompat.ActionButton"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="start|center_vertical"
+                android:scrollbars="vertical"
+                android:text="@string/apagar"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/textView_toolbar_mp_detalhe_responder"
+                style="@style/Widget.AppCompat.ActionButton"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical|end"
+                android:text="@string/responder"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </android.support.v7.widget.Toolbar>
+
+</RelativeLayout>

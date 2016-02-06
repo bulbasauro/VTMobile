@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+    >
+
+    <TextView
+        android:id="@+id/textView_dialog_nav_titulo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="?attr/colorPrimary"
+        android:padding="20sp"
+        android:text="@string/navegar"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/textView_dialog_nav_texto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView_dialog_nav_titulo"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="10sp"
+        android:layout_marginTop="20sp"
+        android:text="@string/diag_nav_texto"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/textView_dialog_nav_totalPaginas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView_dialog_nav_texto"
+        android:layout_toEndOf="@+id/textView_dialog_nav_texto"
+        android:layout_toRightOf="@+id/textView_dialog_nav_texto"
+        android:layout_weight="1"
+        android:text="@string/diag_nav_placeholder"
+        android:textSize="16sp"/>
+
+    <EditText
+        android:id="@+id/editText_dialog_nav_pagina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="16sp"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/textView_dialog_nav_texto"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    package="com.bulbasauro.vtmobile"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="1"
+    android:versionName="1">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/app_icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".TopicoActivity">
+        </activity>
+        <activity android:name=".ResponderTopicoActivity">
+        </activity>
+        <activity android:name=".NovoTopicoActivity">
+        </activity>
+        <activity android:name=".MensagemParticularActivity">
+        </activity>
+        <activity android:name=".DetalheMpActivity">
+        </activity>
+        <activity android:name=".ConfiguracoesActivity">
+        </activity>
+        <activity android:name=".MandarMpActivity">
+        </activity>
+    </application>
+
+</manifest>

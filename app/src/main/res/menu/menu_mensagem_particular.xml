@@ -1,0 +1,48 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="com.bulbasauro.vtmobile.MensagemParticularActivity">
+
+    <item
+        android:id="@+id/action_home"
+        android:icon="@drawable/home"
+        android:orderInCategory="1"
+        android:title="@string/home"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_nova_mp"
+        android:icon="@drawable/new_mp"
+        android:orderInCategory="8"
+        android:title="@string/mp_nova"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_refresh_mp"
+        android:icon="@drawable/refresh_mp"
+        android:orderInCategory="9"
+        android:title="@string/mp_atualizar"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_logar"
+        android:orderInCategory="2"
+        android:title="@string/logar"/>
+
+    <item
+        android:id="@+id/action_sair"
+        android:orderInCategory="3"
+        android:title="@string/sair"/>
+
+    <item
+        android:id="@+id/action_mp"
+        android:orderInCategory="4"
+        android:title="@string/mp"/>
+
+    <item
+        android:id="@+id/action_configuracoes"
+        android:orderInCategory="10"
+        android:title="@string/configuracoes"
+        app:showAsAction="never"/>
+
+</menu>

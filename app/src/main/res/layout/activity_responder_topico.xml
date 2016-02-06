@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ResponderTopicoActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_menu"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:theme="@style/ToolbarStyle"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+        android:layout_below="@+id/toolbar_menu"
+        android:layout_above="@+id/toolbar_postar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar_menu"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout_responderTopico_header"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorAccent"
+                android:orientation="vertical"
+                android:padding="10sp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true">
+
+                <TextView
+                    android:id="@+id/textView_responderTopico_titulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:gravity="start|center_vertical"
+                    android:text="@string/posts_placeholder_titulo"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/textView_responderTopico_dataHora"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textView_responderTopico_titulo"
+                    android:gravity="start|center_vertical"
+                    android:text="@string/posts_placeholder_postDate"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"/>
+
+                <ImageView
+                    android:id="@+id/imageView_responderTopico_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/textView_responderTopico_dataHora"
+                    android:layout_alignEnd="@+id/textView_responderTopico_titulo"
+                    android:layout_alignRight="@+id/textView_responderTopico_titulo"
+                    android:src="@drawable/star00"/>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/posts_placeholder_mensagemCount"
+                android:id="@+id/textView_postar_mensagemCount"
+                android:layout_marginLeft="72dp"
+                android:layout_marginStart="72dp"
+                android:textSize="12sp"
+                android:layout_alignBottom="@+id/textView_postar_mensagem"
+                android:layout_alignLeft="@+id/editText_postar_mensagem"
+                android:layout_alignStart="@+id/editText_postar_mensagem"/>
+
+            <TextView
+                android:id="@+id/textView_postar_mensagem"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/relativeLayout_responderTopico_header"
+                android:paddingLeft="10sp"
+                android:paddingRight="10sp"
+                android:paddingTop="10sp"
+                android:text="@string/posts_mensagem"
+                android:textSize="12sp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/editText_postar_mensagem"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="false"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="false"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView_postar_mensagem"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:inputType="textCapSentences|textAutoCorrect|textMultiLine"
+                android:gravity="top"
+                android:maxLength="15000"/>
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_postar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:background="?attr/colorPrimary">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="16sp"
+            android:layout_marginEnd="16sp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView_toolbar_postar_cancelar"
+                style="@style/Widget.AppCompat.ActionButton"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="start|center_vertical"
+                android:scrollbars="vertical"
+                android:text="@string/posts_cancelar"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:id="@+id/imageView_toolbar_postar_emoticon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/emoticon"/>
+
+            <TextView
+                android:id="@+id/textView_toolbar_postar_enviar"
+                style="@style/Widget.AppCompat.ActionButton"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical|end"
+                android:text="@string/posts_enviar"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </android.support.v7.widget.Toolbar>
+
+</RelativeLayout>

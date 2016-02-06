@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.bulbasauro.vtmobile.TopicoActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_menu"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:theme="@style/ToolbarStyle"/>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout_principal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/toolbar_navigation"
+        android:layout_below="@+id/toolbar_menu"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/listView_topico_posts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/toolbar_navigation"
+            android:layout_alignLeft="@+id/toolbar_menu"
+            android:layout_alignStart="@+id/toolbar_menu"
+            android:layout_below="@+id/toolbar_menu"/>
+    </android.support.design.widget.CoordinatorLayout>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:background="?attr/colorPrimary"
+        app:theme="@style/ToolbarStyle">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton_topico_answer"
+                style="@style/Widget.AppCompat.ActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/new_topic"/>
+
+            <ImageButton
+                android:id="@+id/imageButton_nav_voltar"
+                style="@style/Widget.AppCompat.ActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/arrow_left"/>
+
+            <TextView
+                android:id="@+id/textView_nav_pagina"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center_vertical|center_horizontal"
+                android:minWidth="100sp"
+                android:nestedScrollingEnabled="true"
+                android:text="0"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <ImageButton
+                android:id="@+id/imageButton_nav_avancar"
+                style="@style/Widget.AppCompat.ActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/arrow_right"/>
+
+            <ImageButton
+                android:id="@+id/imageButton_nav_refresh"
+                style="@style/Widget.AppCompat.ActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/refresh_page"/>
+        </LinearLayout>
+    </android.support.v7.widget.Toolbar>
+
+</RelativeLayout>

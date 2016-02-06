@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <com.daimajia.swipe.SwipeLayout
+        android:id="@+id/swipeLayout_topico_posts"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <!-- Bottom View Start-->
+        <LinearLayout
+            android:id="@+id/bottom_wrapper_left"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:background="@color/grey"
+            android:padding="10sp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView_wrapper_posts_avatar"
+                    android:layout_width="150px"
+                    android:layout_height="150px"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_gravity="center"
+                    android:foregroundGravity="center_vertical"
+                    android:src="@drawable/nopic"/>
+
+                <TextView
+                    android:id="@+id/textView_wrapper_posts_mensagens"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:foregroundGravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    android:text="Mensagens: 99999"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/textView_wrapper_posts_cadastro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:foregroundGravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    android:text="Cadastro: 99/99/9999"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/textView_wrapper_posts_nivel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:foregroundGravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    android:text="Nível 9"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="10sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/textView_wrapper_posts_userName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:foregroundGravity="center_vertical"
+                    android:gravity="left"
+                    android:text="Username"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+                <WebView
+                    android:id="@+id/webView_wrapper_posts_assinatura"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/grey"
+                    android:foregroundGravity="center_vertical"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bottom_wrapper"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:background="?attr/colorPrimary"
+            android:gravity="center_vertical"
+            android:measureWithLargestChild="false"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <ImageButton
+                android:id="@+id/imageButton_topico_edit"
+                style="@style/Widget.AppCompat.ActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:foregroundGravity="center_vertical"
+                android:src="@drawable/edit"/>
+
+            <ImageButton
+                android:id="@+id/imageButton_topico_mp"
+                style="@style/Widget.AppCompat.ActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:foregroundGravity="center_vertical"
+                android:src="@drawable/mp"/>
+
+            <ImageButton
+                android:id="@+id/imageButton_topico_quoteUser"
+                style="@style/Widget.AppCompat.ActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:foregroundGravity="center_vertical"
+                android:src="@drawable/quote_icon"/>
+
+            <ImageButton
+                android:id="@+id/imageButton_topico_quoteAvatar"
+                style="@style/Widget.AppCompat.ActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:foregroundGravity="center_vertical"
+                android:src="@drawable/quote_avatar"/>
+
+            <!--What you want to show-->
+        </LinearLayout>
+        <!-- Bottom View End-->
+
+        <!-- Surface View Start -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:padding="10sp">
+            <!--What you want to show in SurfaceView-->
+
+            <TextView
+                android:id="@+id/textView_topico_userName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/imageView_topico_avatar"
+                android:layout_toEndOf="@+id/imageView_topico_avatar"
+                android:layout_toRightOf="@+id/imageView_topico_avatar"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="10sp"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:id="@+id/imageView_topico_avatar"
+                android:layout_width="100px"
+                android:layout_height="100px"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/nopic"/>
+
+            <TextView
+                android:id="@+id/textView_topico_publishDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/textView_topico_userName"
+                android:layout_alignStart="@+id/textView_topico_userName"
+                android:layout_below="@+id/textView_topico_userName"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:textSize="10sp"/>
+
+            <TextView
+                android:id="@+id/textView_topico_postNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/textView_topico_publishDate"
+                android:layout_alignEnd="@+id/textView_topico_userName"
+                android:layout_alignRight="@+id/textView_topico_userName"
+                android:gravity="center_vertical|right"
+                android:textSize="10sp"
+                android:textStyle="italic"
+                />
+
+            <WebView
+                android:id="@+id/webView_topico_texto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/textView_topico_publishDate"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignStart="@+id/textView_topico_publishDate"
+                android:layout_below="@+id/textView_topico_postNumber"
+                />
+
+            <TextView
+                android:id="@+id/textView_topico_postAvaliacao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/textView_topico_publishDate"
+                android:layout_toLeftOf="@+id/textView_topico_postNumber"
+                android:layout_toStartOf="@+id/textView_topico_postNumber"
+                android:gravity="left"
+                android:paddingRight="15dp"
+                android:textSize="10sp"
+                android:textStyle="bold"/>
+
+        </RelativeLayout>
+        <!-- Surface View End -->
+    </com.daimajia.swipe.SwipeLayout>
+</LinearLayout>

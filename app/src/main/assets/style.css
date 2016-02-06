@@ -1,0 +1,49 @@
+td.quote {
+    background-color: #fff;
+    border: 1px solid #008aa7;
+    padding-left: 3px;
+    max-width:100%;
+    width: 100%;
+    font-size: 0.9em;
+}
+
+span.messageEdited {
+    font-size: .65em;
+    font-style: italic;
+    color: #009ebf;
+}
+
+div.deletado {
+    background-color: #c1272d;
+    color: #fff;
+    padding: 3px 0;
+    font-size: 0.9em;
+}
+
+div.msg.erro {
+    background-color: #c1272d;
+    color: #fff;
+    padding: 5px 5px 5px 40px;
+    font-size: 0.9em;
+}
+
+span.brokenBBCode {
+    color: #c1272d;
+    font-weight: bold;
+}
+
+img {
+    max-width: 100%;
+    width:auto;
+    height: auto;
+}
+
+span.publishDate {
+    color: #5b75ad;
+    font-weight bold;
+    font-size: 1.3em;
+}
+
+ul#mps-statistics li, ul#mps-details li {
+    padding: 3px 0;
+}

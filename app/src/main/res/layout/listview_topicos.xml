@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+    <com.daimajia.swipe.SwipeLayout
+        android:id="@+id/swipeLayout_main_topicos"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Bottom View Start-->
+        <LinearLayout
+            android:id="@+id/bottom_wrapper_topicos"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="?attr/colorPrimary"
+            android:gravity="center_vertical"
+            android:measureWithLargestChild="false"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <ImageButton
+                android:id="@+id/imageButton_main_topicos_flag_vazia"
+                style="@style/Widget.AppCompat.ActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:foregroundGravity="center_vertical"
+                android:src="@drawable/flag_vazia"/>
+
+            <ImageButton
+                android:id="@+id/imageButton_main_topicos_favorito"
+                style="@style/Widget.AppCompat.ActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:foregroundGravity="center_vertical"
+                android:src="@drawable/favorito"/>
+            <!--What you want to show-->
+        </LinearLayout>
+        <!-- Bottom View End-->
+
+        <!-- Surface View Start -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="12sp">
+            <!--What you want to show in SurfaceView-->
+
+            <TextView
+                android:id="@+id/textView_main_topico_titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:gravity="center_vertical"
+                android:text="Título Tópico"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="?attr/colorPrimary"/>
+
+            <TextView
+                android:id="@+id/textView_main_topico_autor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView_main_topico_qtdPagina"
+                android:gravity="center_vertical"
+                android:text="Autor"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/textView_main_topico_resposta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView_main_topico_titulo"
+                android:layout_toEndOf="@+id/textView_main_topico_qtdPagina"
+                android:layout_toRightOf="@+id/textView_main_topico_qtdPagina"
+                android:gravity="center_vertical|right"
+                android:text="Respostas"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12sp"
+                />
+
+            <TextView
+                android:id="@+id/textView_main_topico_qtdPagina"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignTop="@+id/textView_main_topico_resposta"
+                android:gravity="left|center_vertical"
+                android:text="Páginas"
+                android:textColor="?attr/colorPrimaryDark"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/textView_main_topico_lastPost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView_main_topico_resposta"
+                android:layout_alignBottom="@+id/textView_main_topico_resposta"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:gravity="right"
+                android:text="Último post"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="10sp"/>
+
+            <ImageView
+                android:id="@+id/imageView_main_topico_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/textView_main_topico_autor"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/star00"/>
+        </RelativeLayout>
+        <!-- Surface View End -->
+
+    </com.daimajia.swipe.SwipeLayout>
+</RelativeLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10sp"
+                android:background="@color/colorAccent"
+                android:id="@+id/relativeLayout_posts_header">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/textView_posts_header_titulo"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:gravity="left|center_vertical"
+        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/textView_posts_header_postDate"
+        android:layout_below="@+id/textView_posts_header_titulo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="12sp"
+        android:textColor="@android:color/white"
+        android:gravity="left|center_vertical"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView_posts_header_rating"
+        android:layout_alignBottom="@+id/textView_posts_header_postDate"
+        android:layout_alignRight="@+id/textView_posts_header_titulo"
+        android:layout_alignEnd="@+id/textView_posts_header_titulo"
+        android:src="@drawable/star00"/>
+</RelativeLayout>

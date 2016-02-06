@@ -1,0 +1,108 @@
+package com.bulbasauro.adapters;
+
+import android.content.Intent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.TextView;
+
+import com.bulbasauro.async.misc.Carteiro;
+import com.bulbasauro.misc.Selo;
+import com.bulbasauro.vtmobile.DetalheMpActivity;
+import com.bulbasauro.vtmobile.MensagemParticularActivity;
+import com.bulbasauro.vtmobile.R;
+import com.daimajia.swipe.SwipeLayout;
+import com.daimajia.swipe.adapters.BaseSwipeAdapter;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+/**
+ * Created on 30/01/2016.
+ */
+public class MensagensParticularesOutbox extends BaseSwipeAdapter {
+
+    private MensagemParticularActivity activity;
+    private ArrayList<HashMap<String, String>> data;
+    private HashMap<String, String> resultp = new HashMap<String, String>();
+
+    public MensagensParticularesOutbox(MensagemParticularActivity activity, ArrayList<HashMap<String, String>> data) {
+        this.activity = activity;
+        this.data = data;
+    }
+
+    @Override
+    public int getSwipeLayoutResourceId(int position) {
+        return R.id.swipeLayout_mp_outbox;
+    }
+
+    @Override
+    public View generateView(int position, ViewGroup parent) {
+        View itemView = LayoutInflater.from(activity).inflate(R.layout.listview_mp_outbox, null);
+        return itemView;
+    }
+
+    @Override
+    public void fillValues(final int position, View view) {
+        resultp = data.get(position);
+
+        TextView textViewAssunto = (TextView) view.findViewById(R.id.textView_mp_outbox_assunto);
+        TextView textViewFestinatario = (TextView) view.findViewById(R.id.textView_mp_outbox_destinatario);
+        TextView textViewDataHora = (TextView) view.findViewById(R.id.textView_mp_outbox_dataHoraEnviado);
+        ImageButton imageButtonConfirmarApagar = (ImageButton) view.findViewById(R.id.imageButton_mp_outbox_confirmarApagar);
+
+        String novo = resultp.get("novo");
+        if ("sim".equals(novo)) {
+            view.setBackgroundColor(0xffffffff);
+        } else {
+            view.setBackgroundColor(0xffcccccc);
+        }
+
+        textViewAssunto.setText(resultp.get("assunto"));
+        textViewFestinatario.setText(resultp.get("destinatario"));
+        textViewDataHora.setText(resultp.get("dataEnvio"));
+
+        final String mensagemURL = resultp.get("URL");
+
+        imageButtonConfirmarApagar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String idPm = mensagemURL.replace("readOut.jbb?pm.id=", "");
+                Carteiro carteiro = new Carteiro(activity, Selo.APAGAR);
+                carteiro.setOut(true);
+                carteiro.setIdPm(idPm);
+                carteiro.execute();
+            }
+        });
+
+        SwipeLayout swipeLayout = (SwipeLayout) view.findViewById(getSwipeLayoutResourceId(position));
+        swipeLayout.getSurfaceView().setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                Intent intent = new Intent(activity, DetalheMpActivity.class);
+                intent.putExtra("userName", activity.getSupportActionBar().getTitle());
+                intent.putExtra("URL", mensagemURL);
+                intent.putExtra("assunto", data.get(position).get("assunto"));
+                intent.putExtra("autor", data.get(position).get("destinatario"));
+                intent.putExtra("dataEnvio", data.get(position).get("dataEnvio"));
+                intent.putExtra("out", true);
+                activity.startActivityForResult(intent, 66);
+            }
+        });
+    }
+
+    @Override
+    public int getCount() {
+        return data.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return data.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+}

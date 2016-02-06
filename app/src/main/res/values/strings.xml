@@ -1,0 +1,107 @@
+<resources>
+    <!-- ACDTIVITY -->
+    <string name="app_name">VT Móvel</string>
+    <string name="config">Configurações</string>
+
+    <!-- CARREGAMENTO -->
+    <string name="carregando">Carregando...</string>
+    <string name="logando">Logando...</string>
+    <string name="validando">Validando...</string>
+    <string name="postando">Postando...</string>
+    <string name="quotando">Quotando...</string>
+    <string name="enviando">Enviando...</string>
+    <string name="apagando">Apagando...</string>
+    <string name="editando">Editando...</string>
+
+    <!-- ERRO -->
+    <string name="erro">Erro!</string>
+    <string name="nao_logado">Você não está logado!</string>
+    <string name="assunto_pequeno">Assunto pequeno demais!</string>
+    <string name="mensagem_pequena">Mensagem pequena demais!</string>
+    <string name="implementar">Não implementado!</string>
+    <string name="apelido_aprovado">Aguarde aprovação do apelido para usar a caixa de Mensagens Particulares!</string>
+
+    <!-- SUCESSO -->
+    <string name="sucesso">Sucesso!</string>
+    <string name="adicionado">Adicionado!</string>
+
+    <!-- MENU -->
+    <string name="home">Home</string>
+    <string name="logar">Logar</string>
+    <string name="sair">Sair</string>
+    <string name="configuracoes">Configurações</string>
+    <string name="mp">MP</string>
+    <string name="mp_nova">Escrever MP</string>
+    <string name="mp_atualizar">Atualizar MPs</string>
+
+    <!-- PÁGINA -->
+    <string name="welcome">Bem vindo!</string>
+    <string name="bye">Volte sempre!</string>
+    <string name="refresh">Atualizado!</string>
+
+    <!-- POSTS -->
+    <string name="posts_placeholder_titulo">Título placeholder</string>
+    <string name="posts_placeholder_postDate">xx/xx/xxxx 24:00</string>
+    <string name="posts_mensagem">Mensagem:</string>
+    <string name="posts_placeholder_mensagemCount">(15000)</string>
+    <string name="posts_cancelar">Cancelar</string>
+    <string name="posts_enviar">Enviar</string>
+    <string name="posts_assunto">Assunto:</string>
+    <string name="posts_assunto_placeholder_mensagemCount">(100)</string>
+    <string name="anti_flood_bloqueado">ANTIFLOOD! Espere a liberação da postagem.</string>
+    <string name="anti_flood_liberado">Postagem liberado!</string>
+
+    <!-- DIALOG -->
+    <string name="navegar">Navegar</string>
+    <string name="diag_confirmar">Confirmar</string>
+    <string name="diag_cancelar">Cancelar</string>
+    <string name="diag_nav_texto">Ir para página... </string>
+    <string name="diag_nav_placeholder">(0)</string>
+    <string name="diag_entrar">Entrar</string>
+    <string name="diag_login_email">E-mail:</string>
+    <string name="diag_login_senha">Senha:</string>
+    <string name="diag_conectar">Conectar</string>
+    <string name="diag_emoticon">Caretas e ícones</string>
+    <string name="diag_inserir">Inserir</string>
+    <string name="diag_fechar">Fechar</string>
+    <string name="snack_verificar">Verificar</string>
+
+    <!-- CONFIGURACOES -->
+    <string name="action_settings">Settings</string>
+    <string name="config_secao_topicos">Tópicos</string>
+    <string name="config_toque_simples">Toque simples</string>
+    <string name="config_toque_duplo">Toque duplo</string>
+    <string name="config_secao_posts">Postagens</string>
+    <string name="config_post_estilo">Exibir suas mensagens do lado direito</string>
+
+    <!-- SHARED PREFERENCES -->
+    <string name="shared_preferences">com.bulbasauro.vtmobile.configuracoes</string>
+    <string name="sp_main_ultima_pagina">sp_main_ultima_pagina</string>
+    <string name="sp_user_logado_user">sp_user_logado_user</string>
+    <string name="sp_user_logado_password">sp_user_logado_password</string>
+    <string name="sp_toque_simples">sp_toque_simples</string>
+    <string name="sp_toque_duplo">sp_toque_duplo</string>
+    <string name="sp_post_estilo">sp_post_estilo</string>
+    <string name="sp_antiflood">sp_antiflood</string>
+
+    <!-- SPINNERS -->
+    <string name="spinner_config_prompt_01">Ir para...</string>
+    <string-array name="spinner_config_toques">
+        <item>Primeira página</item>
+        <item>Última página</item>
+    </string-array>
+    <string-array name="spinner_config_toques2">
+        <item>Primeira página</item>
+        <item>Última página</item>
+        <item>Nada</item>
+    </string-array>
+
+    <!-- MP -->
+    <string name="apagar_mensagem">Tem certeza que deseja apagar esta mensagem?</string>
+    <string name="entrada">Recebidas</string>
+    <string name="saida">Enviadas</string>
+    <string name="destinatario">Destinatário:</string>
+    <string name="apagar">Apagar</string>
+    <string name="responder">Responder</string>
+
+</resources>

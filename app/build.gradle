@@ -1,0 +1,40 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'bulbasauroApp'
+            keyPassword 'vulpes1747'
+            storeFile file('C:/Users/Xã/Dropbox/Documentos/android_dev_keystore.jks')
+            storePassword 'vulpes1747'
+        }
+    }
+    compileSdkVersion 22
+    buildToolsVersion "23.0.1"
+    defaultConfig {
+        applicationId "com.bulbasauro.vtmobile"
+        minSdkVersion 16
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'org.jsoup:jsoup:1.8.3'
+    compile 'com.android.support:support-v4:22.2.1'
+    compile 'com.daimajia.swipelayout:library:1.2.0@aar'
+    compile 'com.github.bumptech.glide:glide:3.6.1'
+    compile 'commons-lang:commons-lang:2.6'
+    compile 'com.android.support:design:22.2.1'
+}
