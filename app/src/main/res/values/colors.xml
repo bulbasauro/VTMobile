@@ -4,6 +4,14 @@
     <color name="colorPrimaryDark">#00687e</color>
     <color name="colorAccent">#009ebf</color>
 
+    <color name="colorPrimaryLaranja">#ff7900</color>
+    <color name="colorPrimaryDarkLaranja">#bb4b00</color>
+    <color name="colorAccentLaranja">#ffad63</color>
+
+    <color name="defaultTextView">#808080</color>
+    <color name="pretoMaisClaro">#686868</color>
+    <color name="pretoClaro">#323232</color>
+    <color name="black">#000000</color>
     <color name="white">#ffffff</color>
     <color name="grey">#f7f7f7</color>
     <color name="greyDark">#e9e9e9</color>

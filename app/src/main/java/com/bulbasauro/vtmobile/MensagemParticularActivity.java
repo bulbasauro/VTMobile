@@ -182,6 +182,11 @@ public class MensagemParticularActivity extends AbstractMenu {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
+            case 22:
+                if (resultCode == 2) {
+                    recreate();
+                }
+                break;
             case 55:
                 if (resultCode == RESULT_OK) {
                     iniciarLoginSharedPreferences(1);

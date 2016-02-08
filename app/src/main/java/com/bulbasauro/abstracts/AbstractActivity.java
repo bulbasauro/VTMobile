@@ -25,12 +25,33 @@ public abstract class AbstractActivity extends AppCompatActivity {
     private Boolean logado = false;
     private int paginaAtual;
 
+    private int tema;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         sharedPreferences = getSharedPreferences(getString(R.string.shared_preferences), Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
         paginaAtual = getSharedPreferences().getInt(getString(R.string.sp_main_ultima_pagina), 1);
+
+        int tema = sharedPreferences.getInt(getString(R.string.sp_tema), 0);
+        definirTema(tema);
+
+        super.onCreate(savedInstanceState);
+    }
+
+    protected void definirTema(int numeroTema) {
+        switch (numeroTema) {
+            case 0:
+                setTheme(R.style.AppTheme_NoActionBar);
+                break;
+            case 1:
+                setTheme(R.style.AppTheme_NoActionBar_Laranja);
+                break;
+            default:
+                setTheme(R.style.AppTheme_NoActionBar);
+                break;
+        }
+        tema = numeroTema;
     }
 
     public void iniciarLogin(String user, String password, Comando comando) {
@@ -93,5 +114,13 @@ public abstract class AbstractActivity extends AppCompatActivity {
 
     public void setPaginaAtual(int paginaAtual) {
         this.paginaAtual = paginaAtual;
+    }
+
+    public int getTema() {
+        return tema;
+    }
+
+    public void setTema(int tema) {
+        this.tema = tema;
     }
 }

@@ -159,7 +159,21 @@ public abstract class AbstractNavegacao extends AbstractMenu {
             }
         });
         View snackbarView = snackbar.getView();
-        snackbarView.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+        int tema = getSharedPreferences().getInt(getString(R.string.sp_tema), 0);
+        switch (tema) {
+            case 0: // Azul
+                snackbarView.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                break;
+            case 1: // Laranja
+                snackbarView.setBackgroundColor(getResources().getColor(R.color.black));
+                View sbView = snackbar.getView();
+                TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+                textView.setTextColor(getResources().getColor(R.color.colorPrimaryLaranja));
+                break;
+            default:
+                snackbarView.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                break;
+        }
         snackbar.show();
     }
 

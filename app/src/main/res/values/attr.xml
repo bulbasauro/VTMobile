@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="colorToolbarTop" format="color"/>
+    <attr name="colorToolbarBottom" format="color"/>
+    <attr name="colorFragmentMP" format="color"/>
+    <attr name="colorWrapperMP" format="color"/>
+    <attr name="colorWrapperPrincipal" format="color"/>
+    <attr name="colorProgressBarMP" format="color"/>
+    <attr name="colorUsername" format="color"/>
+    <attr name="colorUsernameAssinatura" format="color"/>
+    <attr name="colorDialog" format="color"/>
+</resources>

@@ -4,7 +4,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:padding="10sp"
-                android:background="@color/colorAccent"
+                android:background="?attr/colorAccent"
                 android:id="@+id/relativeLayout_posts_header">
 
     <TextView

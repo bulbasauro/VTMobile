@@ -82,6 +82,7 @@
                     android:foregroundGravity="center_vertical"
                     android:gravity="left"
                     android:text="Username"
+                    android:textColor="?attr/colorUsernameAssinatura"
                     android:textSize="18sp"
                     android:textStyle="bold"/>
 
@@ -100,7 +101,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="right"
-            android:background="?attr/colorPrimary"
+            android:background="?attr/colorWrapperPrincipal"
             android:gravity="center_vertical"
             android:measureWithLargestChild="false"
             android:orientation="horizontal"
@@ -159,6 +160,7 @@
                 android:layout_toRightOf="@+id/imageView_topico_avatar"
                 android:gravity="left|center_vertical"
                 android:paddingLeft="10sp"
+                android:textColor="?attr/colorUsername"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
 

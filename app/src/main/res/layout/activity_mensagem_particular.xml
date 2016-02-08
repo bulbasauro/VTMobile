@@ -11,7 +11,7 @@
         android:id="@+id/toolbar_menu"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="?attr/colorToolbarTop"
         app:popupTheme="@style/AppTheme.PopupOverlay"
         app:theme="@style/ToolbarStyle"/>
 
@@ -102,7 +102,7 @@
             android:layout_height="fill_parent"
             android:layout_gravity="top|left"
             android:layout_margin="2dp"
-            android:background="@color/colorPrimaryDark"/>
+            android:background="?attr/colorProgressBarMP"/>
     </FrameLayout>
 
     <TextView
@@ -147,17 +147,16 @@
         android:id="@+id/tablayout_mp"
         android:layout_width="fill_parent"
         android:layout_height="36dp"
-        android:background="@color/colorPrimary"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView7"
+        android:layout_marginTop="12dp"
+        android:background="?attr/colorFragmentMP"
         app:tabGravity="fill"
         app:tabIndicatorColor="@android:color/white"
         app:tabIndicatorHeight="3dp"
         app:tabMode="fixed"
         app:tabSelectedTextColor="#ffffff"
-        app:tabTextColor="#e0e0e0"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView7"
-        android:layout_marginTop="12dp"
-        />
+        app:tabTextColor="#e0e0e0"/>
 
 </RelativeLayout>

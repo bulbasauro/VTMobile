@@ -15,7 +15,7 @@
             android:id="@+id/bottom_wrapper_topicos"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:background="?attr/colorPrimary"
+            android:background="?attr/colorWrapperPrincipal"
             android:gravity="center_vertical"
             android:measureWithLargestChild="false"
             android:orientation="horizontal"
@@ -83,7 +83,7 @@
                 android:layout_toRightOf="@+id/textView_main_topico_qtdPagina"
                 android:gravity="center_vertical|right"
                 android:text="Respostas"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="?attr/colorPrimaryDark"
                 android:textSize="12sp"
                 />
 

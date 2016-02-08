@@ -14,6 +14,32 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorToolbarTop">@color/colorPrimary</item>
+        <item name="colorToolbarBottom">@color/colorPrimary</item>
+        <item name="colorWrapperPrincipal">@color/colorPrimary</item>
+        <item name="colorWrapperMP">@color/colorPrimary</item>
+        <item name="colorFragmentMP">@color/colorPrimary</item>
+        <item name="colorProgressBarMP">@color/colorPrimaryDark</item>
+        <item name="colorUsername">@color/defaultTextView</item>
+        <item name="colorUsernameAssinatura">@color/black</item>
+        <item name="colorDialog">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.Laranja">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@color/colorPrimaryLaranja</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryLaranja</item>
+        <item name="colorAccent">@color/colorPrimaryLaranja</item>
+        <item name="colorToolbarTop">@color/pretoClaro</item>
+        <item name="colorToolbarBottom">@color/pretoClaro</item>
+        <item name="colorWrapperPrincipal">@color/colorPrimaryLaranja</item>
+        <item name="colorWrapperMP">@color/colorPrimaryLaranja</item>
+        <item name="colorFragmentMP">@color/pretoClaro</item>
+        <item name="colorProgressBarMP">@color/colorPrimaryLaranja</item>
+        <item name="colorUsername">@color/defaultTextView</item>
+        <item name="colorUsernameAssinatura">@color/black</item>
+        <item name="colorDialog">@color/pretoClaro</item>
     </style>
 
     <style name="ToolbarStyle" parent="ThemeOverlay.AppCompat.Dark.ActionBar">

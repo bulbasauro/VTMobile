@@ -11,7 +11,7 @@
         android:id="@+id/toolbar_menu"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="?attr/colorToolbarTop"
         app:popupTheme="@style/AppTheme.PopupOverlay"
         app:theme="@style/ToolbarStyle"/>
 
@@ -19,8 +19,8 @@
         android:id="@+id/scrollView_mp_detalhe"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbar_menu"
-        android:layout_above="@+id/toolbar_mp">
+        android:layout_above="@+id/toolbar_mp"
+        android:layout_below="@+id/toolbar_menu">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -94,10 +94,11 @@
                     android:layout_alignTop="@+id/imageView_mp_detalhe_avatar"
                     android:layout_toEndOf="@+id/imageView_mp_detalhe_avatar"
                     android:layout_toRightOf="@+id/imageView_mp_detalhe_avatar"
+                    android:gravity="left|start"
                     android:paddingLeft="10dp"
+                    android:textColor="?attr/colorUsername"
                     android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:gravity="left|start"/>
+                    android:textStyle="bold"/>
 
                 <WebView
                     android:id="@+id/webView_mp_detalhe_corpo"
@@ -120,7 +121,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
-        android:background="?attr/colorPrimary">
+        android:background="?attr/colorToolbarBottom">
 
         <LinearLayout
             android:layout_width="match_parent"

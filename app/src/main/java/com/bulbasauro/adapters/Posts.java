@@ -149,8 +149,20 @@ public class Posts extends BaseSwipeAdapter {
         String txtPost = resultp.get("postTexto");
         String urlTopico = resultp.get("urlTopico");
 
+        String css;
+        switch (activity.getTema()) {
+            case 0:
+                css = "style.css";
+                break;
+            case 1:
+                css = "style_laranja.css";
+                break;
+            default:
+                css = "style.css";
+                break;
+        }
         StringBuilder sb = new StringBuilder();
-        sb.append("<HTML><HEAD><LINK href=\"style.css\" type=\"text/css\" rel=\"stylesheet\"/></HEAD><body>");
+        sb.append("<HTML><HEAD><LINK href=\""+ css + "\" type=\"text/css\" rel=\"stylesheet\"/></HEAD><body>");
         sb.append(txtPost.toString());
         sb.append("</body></HTML>");
         String postagem = sb.toString();
@@ -176,7 +188,7 @@ public class Posts extends BaseSwipeAdapter {
         postCount.setText(resultp.get("postCount"));
 
         StringBuilder sbAss = new StringBuilder();
-        sbAss.append("<HTML><HEAD><LINK href=\"style.css\" type=\"text/css\" rel=\"stylesheet\"/></HEAD><body>");
+        sbAss.append("<HTML><HEAD><LINK href=\""+ css + "\" type=\"text/css\" rel=\"stylesheet\"/></HEAD><body>");
         sbAss.append(assinatura.toString());
         sbAss.append("</body></HTML>");
         String ass = sbAss.toString();
