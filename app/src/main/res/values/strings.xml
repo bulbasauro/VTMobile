@@ -31,6 +31,7 @@
     <string name="sair">Sair</string>
     <string name="configuracoes">Configurações</string>
     <string name="mp">MP</string>
+    <string name="topicos">Meus Tópicos</string>
     <string name="mp_nova">Escrever MP</string>
     <string name="mp_atualizar">Atualizar MPs</string>
 
@@ -87,6 +88,8 @@
     <string name="sp_post_estilo">sp_post_estilo</string>
     <string name="sp_antiflood">sp_antiflood</string>
     <string name="sp_tema">sp_tema</string>
+    <string name="sp_logado">sp_logado</string>
+    <string name="sp_home">sp_home</string>
 
     <!-- SPINNERS -->
     <string name="spinner_config_prompt_02">Tema</string>

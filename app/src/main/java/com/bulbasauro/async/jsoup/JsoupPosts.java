@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.bulbasauro.adapters.Posts;
 import com.bulbasauro.misc.Comando;
+import com.bulbasauro.utils.NumberSelector;
 import com.bulbasauro.vtmobile.R;
 import com.bulbasauro.vtmobile.TopicoActivity;
 
@@ -105,9 +106,14 @@ public class JsoupPosts extends AsyncTask<String, Void, Boolean> {
                 totalPaginas++;
             }
 
+            String urlPerfil = document.select("a[class=menu-profile menu-buttons]").attr("href");
+            String userNumber = NumberSelector.numeroUsuario(urlPerfil);
+            activity.setUserNumber(userNumber);
+
             // Identifica o primeiro post
             for (Element posts : document.select("div[class=autoClear  topicRow  post]")) {
                 Elements divUserDetails = posts.select("div[class=left post-user]");
+                String urlPerfilUser = divUserDetails.select("a").first().attr("href");
                 String userName = divUserDetails.select("p[class=userNickname").select("a").text();
                 String avatarSrc = divUserDetails.select("img[id=avatarImg]").attr("src");
                 String userLevel = divUserDetails.select("p[class=userLevel").text().trim();
@@ -123,16 +129,7 @@ public class JsoupPosts extends AsyncTask<String, Void, Boolean> {
                 String postCount = divPost.select("div[class=left postCount]").select("a").text();
                 String postNumber = divPost.select("div[class=left postCount]").select("a").attr("href");
 
-                String postNumero = "";
-                for (int i = postNumber.length(); i > 0; i--) {
-                    String caracter = String.valueOf(postNumber.charAt(i - 1));
-                    if ("#".equals(caracter)) {
-                        postNumero = new StringBuilder(postNumero).reverse().toString();
-                        break;
-                    } else {
-                        postNumero = postNumero + caracter;
-                    }
-                }
+                String postNumero = NumberSelector.numeroPost(postNumber);
 
                 String postTexto = divPost.select("div[class=texto]").html();
 
@@ -149,6 +146,7 @@ public class JsoupPosts extends AsyncTask<String, Void, Boolean> {
                 mapPrincipal.put("userLevel", userLevel);
                 mapPrincipal.put("cadastro", cadastro);
                 mapPrincipal.put("mensagens", mensagens);
+                mapPrincipal.put("urlPerfil", urlPerfilUser);
                 this.arrayListPosts.add(mapPrincipal);
             }
 
@@ -156,6 +154,7 @@ public class JsoupPosts extends AsyncTask<String, Void, Boolean> {
             Elements elements = document.select("div[class=autoClear  postRow  post");
             for (Element resposta : elements) {
                 Elements divUserDetails = resposta.select("div[class=left post-user]");
+                String urlPerfilUser = divUserDetails.select("a").first().attr("href");
                 String userName = divUserDetails.select("p[class=userNickname").select("a").text();
                 String avatarSrc = divUserDetails.select("img[id=avatarImg]").attr("src");
                 String userLevel = divUserDetails.select("p[class=userLevel").text().trim();
@@ -169,16 +168,7 @@ public class JsoupPosts extends AsyncTask<String, Void, Boolean> {
                 String postCount = divPost.select("div[class=left postCount]").select("a").text();
                 String postNumber = divPost.select("div[class=left postCount]").select("a").attr("href");
 
-                String postNumero = "";
-                for (int i = postNumber.length(); i > 0; i--) {
-                    String caracter = String.valueOf(postNumber.charAt(i - 1));
-                    if ("#".equals(caracter)) {
-                        postNumero = new StringBuilder(postNumero).reverse().toString();
-                        break;
-                    } else {
-                        postNumero = postNumero + caracter;
-                    }
-                }
+                String postNumero = NumberSelector.numeroPost(postNumber);
 
                 String postTexto = divPost.select("div[class=texto]").html();
 
@@ -207,6 +197,7 @@ public class JsoupPosts extends AsyncTask<String, Void, Boolean> {
                 mapPosts.put("userLevel", userLevel);
                 mapPosts.put("cadastro", cadastro);
                 mapPosts.put("mensagens", mensagens);
+                mapPosts.put("urlPerfil", urlPerfilUser);
                 this.arrayListPosts.add(mapPosts);
             }
 
@@ -222,12 +213,12 @@ public class JsoupPosts extends AsyncTask<String, Void, Boolean> {
         if (result) {
             Boolean estilo = activity.getSharedPreferences().getBoolean(activity.getString(R.string.sp_post_estilo), false);
             Posts posts = new Posts(activity, arrayListPosts, bemVindo, estilo, topicoTitulo);
+            activity.inserirHeaderTopico(topicoTitulo, dataPublished);
             listView.setAdapter(posts);
 
             activity.setPaginaAtual(Integer.parseInt(paginaAtual));
             activity.atualizarToolbarNavegacao(totalPaginas);
 
-            activity.inserirHeaderTopico(topicoTitulo, dataPublished);
             activity.iniciarBotaoResponder();
 
             switch (comando) {

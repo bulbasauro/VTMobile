@@ -13,7 +13,9 @@ import android.widget.Toast;
 
 import com.bulbasauro.async.misc.Quotador;
 import com.bulbasauro.misc.Quote;
+import com.bulbasauro.utils.NumberSelector;
 import com.bulbasauro.vtmobile.MandarMpActivity;
+import com.bulbasauro.vtmobile.MeusTopicosActivity;
 import com.bulbasauro.vtmobile.R;
 import com.bulbasauro.vtmobile.TopicoActivity;
 import com.bumptech.glide.Glide;
@@ -162,7 +164,7 @@ public class Posts extends BaseSwipeAdapter {
                 break;
         }
         StringBuilder sb = new StringBuilder();
-        sb.append("<HTML><HEAD><LINK href=\""+ css + "\" type=\"text/css\" rel=\"stylesheet\"/></HEAD><body>");
+        sb.append("<HTML><HEAD><LINK href=\"" + css + "\" type=\"text/css\" rel=\"stylesheet\"/></HEAD><body>");
         sb.append(txtPost.toString());
         sb.append("</body></HTML>");
         String postagem = sb.toString();
@@ -188,7 +190,7 @@ public class Posts extends BaseSwipeAdapter {
         postCount.setText(resultp.get("postCount"));
 
         StringBuilder sbAss = new StringBuilder();
-        sbAss.append("<HTML><HEAD><LINK href=\""+ css + "\" type=\"text/css\" rel=\"stylesheet\"/></HEAD><body>");
+        sbAss.append("<HTML><HEAD><LINK href=\"" + css + "\" type=\"text/css\" rel=\"stylesheet\"/></HEAD><body>");
         sbAss.append(assinatura.toString());
         sbAss.append("</body></HTML>");
         String ass = sbAss.toString();
@@ -200,10 +202,27 @@ public class Posts extends BaseSwipeAdapter {
 
         dataHora.setText(resultp.get("publishDate"));
 
+        registrarMeusTopicos(view, position);
         registrarBotaoQuote(view, position);
         registrarBotaoAvatar(view, position);
         registrarBotaoMP(view, position);
         registrarBotaoEditar(view, position);
+
+    }
+
+    private void registrarMeusTopicos(View view, final int position) {
+        ImageView imageView = (ImageView) view.findViewById(R.id.imageView_wrapper_posts_avatar);
+        if (imageView != null) {
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(activity, MeusTopicosActivity.class);
+                    intent.putExtra("logado", activity.getLogado());
+                    intent.putExtra("userNumber", NumberSelector.numeroUsuario(data.get(position).get("urlPerfil")));
+                    activity.startActivityForResult(intent, 8);
+                }
+            });
+        }
 
     }
 

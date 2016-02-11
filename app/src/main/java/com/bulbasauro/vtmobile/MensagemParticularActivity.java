@@ -3,7 +3,6 @@ package com.bulbasauro.vtmobile;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,7 +12,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bulbasauro.abstracts.AbstractMenu;
+import com.bulbasauro.abstracts.AbstractFragment;
 import com.bulbasauro.adapters.MensagensParticularesFragment;
 import com.bulbasauro.async.jsoup.JsoupMpInbox;
 import com.bulbasauro.async.jsoup.JsoupMpOutbox;
@@ -23,13 +22,11 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-public class MensagemParticularActivity extends AbstractMenu {
+public class MensagemParticularActivity extends AbstractFragment {
 
-    private ViewPager viewPager;
-    private TabLayout tabLayout;
     private ListView listViewInbox;
-
     private ListView listViewOutbox;
+
     private JsoupMpInbox inbox;
     private JsoupMpOutbox outbox;
 
@@ -40,23 +37,14 @@ public class MensagemParticularActivity extends AbstractMenu {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mensagem_particular);
 
-        viewPager = (ViewPager) findViewById(R.id.viewPager_mp);
-        tabLayout = (TabLayout) findViewById(R.id.tablayout_mp);
-
-        FragmentManager manager = getSupportFragmentManager();
-        MensagensParticularesFragment mps = new MensagensParticularesFragment(manager);
-        viewPager.setAdapter(mps);
-
-        tabLayout.setupWithViewPager(viewPager);
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.setTabsFromPagerAdapter(mps);
+        setViewPager((ViewPager) findViewById(R.id.viewPager_mp));
+        setTabLayout((TabLayout) findViewById(R.id.tablayout_mp));
+        setFragmentPagerAdapter(new MensagensParticularesFragment(getSupportFragmentManager()));
     }
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        String bemVindo = getIntent().getExtras().getString("userName");
-        getSupportActionBar().setTitle(bemVindo);
 
         iniciarLoginSharedPreferences(1);
     }
@@ -77,14 +65,15 @@ public class MensagemParticularActivity extends AbstractMenu {
 
     @Override
     public void abrirPagina(int numeroPagina, Comando comando) {
-        listViewInbox = (ListView) viewPager.findViewById(R.id.listView_mp_inbox);
-        listViewOutbox = (ListView) viewPager.findViewById(R.id.listView_mp_outbox);
+        listViewInbox = (ListView) getViewPager().findViewById(R.id.listView_mp_inbox);
+        listViewOutbox = (ListView) getViewPager().findViewById(R.id.listView_mp_outbox);
         inbox = new JsoupMpInbox(MensagemParticularActivity.this, getCookies(), listViewInbox);
         inbox.execute();
         outbox = new JsoupMpOutbox(MensagemParticularActivity.this, getCookies(), listViewOutbox);
         outbox.execute();
     }
 
+    @Override
     public void setInfo(Document document) {
         Elements ele = document.select("ul[id=mps-statistics]");
         String lis[] = new String[6];

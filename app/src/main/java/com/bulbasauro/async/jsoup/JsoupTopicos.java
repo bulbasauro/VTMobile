@@ -96,10 +96,23 @@ public class JsoupTopicos extends AsyncTask<String, Void, Boolean> {
             // Transforma em int a string de última página
             totalPaginas = Integer.parseInt(stringUltimaPagina);
 
+            String urlPerfil = document.select("a[class=menu-profile menu-buttons]").attr("href");
+            String userNumber = "";
+            for (int i = urlPerfil.length(); i > 0; i--) {
+                String caracter = String.valueOf(urlPerfil.charAt(i - 1));
+                if ("_".equals(caracter)) {
+                    userNumber = new StringBuilder(userNumber).reverse().toString();
+                    break;
+                } else {
+                    userNumber = userNumber + caracter;
+                }
+            }
+            activity.setUserNumber(userNumber);
+
             // Pega a tabela do documento
             for (Element table : document.select("table[id=topics]")) {
                 // Pega todas as linhas (tr) da tabela
-                for (Element row : table.select("tr:gt(0)")) {
+                for (Element row : table.select("tbody > tr")) {
                     HashMap<String, String> map = new HashMap<String, String>();
 
                     // Pega todas as celulas (td) da linha (tr)

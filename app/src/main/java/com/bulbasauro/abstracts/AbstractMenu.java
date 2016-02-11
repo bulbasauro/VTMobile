@@ -14,7 +14,9 @@ import android.widget.Toast;
 import com.bulbasauro.misc.Comando;
 import com.bulbasauro.vtmobile.ConfiguracoesActivity;
 import com.bulbasauro.vtmobile.MensagemParticularActivity;
+import com.bulbasauro.vtmobile.MeusTopicosActivity;
 import com.bulbasauro.vtmobile.R;
+import com.bulbasauro.vtmobile.TopicoActivity;
 
 /**
  * Created on 30/01/2016.
@@ -26,6 +28,7 @@ import com.bulbasauro.vtmobile.R;
 public abstract class AbstractMenu extends AbstractActivity {
 
     private Menu menu;
+    private String userNumber;
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -57,8 +60,22 @@ public abstract class AbstractMenu extends AbstractActivity {
             case R.id.action_mp:
                 if (AbstractMenu.this instanceof MensagemParticularActivity) {
                     iniciarLoginSharedPreferences(1);
+                } else if (AbstractMenu.this instanceof MeusTopicosActivity) {
+                    abrirMensagensParticulares();
+                    finish();
                 } else {
                     abrirMensagensParticulares();
+                }
+                return true;
+            case R.id.action_topicos:
+                Intent intentMeusTopicos = new Intent(AbstractMenu.this, MeusTopicosActivity.class);
+                intentMeusTopicos.putExtra("userNumber", userNumber);
+                intentMeusTopicos.putExtra("logado", getLogado());
+                startActivityForResult(intentMeusTopicos, 8);
+                if (AbstractMenu.this instanceof TopicoActivity) {
+                    finish();
+                } else if (AbstractMenu.this instanceof MensagemParticularActivity) {
+                    finish();
                 }
                 return true;
             case R.id.action_configuracoes:
@@ -110,6 +127,7 @@ public abstract class AbstractMenu extends AbstractActivity {
             getSupportActionBar().setTitle(getString(R.string.app_name));
             menu.removeItem(R.id.action_sair);
             menu.removeItem(R.id.action_mp);
+            menu.removeItem(R.id.action_topicos);
             MenuItem miLogar = menu.findItem(R.id.action_logar);
             if (miLogar == null) {
                 menu.add(Menu.NONE, R.id.action_logar, 2, R.string.logar);
@@ -125,6 +143,10 @@ public abstract class AbstractMenu extends AbstractActivity {
             MenuItem miMP = menu.findItem(R.id.action_mp);
             if (miMP == null) {
                 menu.add(Menu.NONE, R.id.action_mp, 4, R.string.mp);
+            }
+            MenuItem miTopicos = menu.findItem(R.id.action_topicos);
+            if (miTopicos == null) {
+                menu.add(Menu.NONE, R.id.action_topicos, 5, R.string.topicos);
             }
         }
     }
@@ -146,4 +168,13 @@ public abstract class AbstractMenu extends AbstractActivity {
     public void setMenu(Menu menu) {
         this.menu = menu;
     }
+
+    public String getUserNumber() {
+        return userNumber;
+    }
+
+    public void setUserNumber(String urlPerfil) {
+        this.userNumber = urlPerfil;
+    }
+
 }

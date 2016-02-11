@@ -4,7 +4,8 @@ import android.content.Intent;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 
-import com.bulbasauro.vtmobile.MainActivity;
+import com.bulbasauro.abstracts.AbstractActivity;
+import com.bulbasauro.vtmobile.MeusTopicosActivity;
 import com.bulbasauro.vtmobile.R;
 import com.bulbasauro.vtmobile.TopicoActivity;
 
@@ -15,10 +16,10 @@ import java.util.HashMap;
  */
 public class CustomGestureListener extends GestureDetector.SimpleOnGestureListener {
 
-    private MainActivity activity;
+    private AbstractActivity activity;
     private HashMap<String, String> resultp;
 
-    public CustomGestureListener(MainActivity activity, HashMap<String, String> resultp) {
+    public CustomGestureListener(AbstractActivity activity, HashMap<String, String> resultp) {
         this.activity = activity;
         this.resultp = resultp;
     }
@@ -49,6 +50,9 @@ public class CustomGestureListener extends GestureDetector.SimpleOnGestureListen
                 intent.putExtra("pagina", pagina);
             }
 
+            if (activity instanceof MeusTopicosActivity) {
+                activity.finish();
+            }
             activity.startActivityForResult(intent, 1);
         }
 
@@ -75,6 +79,9 @@ public class CustomGestureListener extends GestureDetector.SimpleOnGestureListen
             intent.putExtra("pagina", pagina);
         }
 
+        if (activity instanceof MeusTopicosActivity) {
+            activity.finish();
+        }
         activity.startActivityForResult(intent, 1);
         return true;
     }

@@ -87,7 +87,7 @@ public class JsoupMpOutbox extends AsyncTask<String, Void, Boolean> {
             // Pega a tabela do documento
             for (Element table : document.select("table[id=pmsList]")) {
                 // Pega todas as linhas (tr) da tabela
-                for (Element row : table.select("tr:gt(0)")) {
+                for (Element row : table.select("tbody > tr:gt(0)")) {
                     HashMap<String, String> map = new HashMap<String, String>();
 
                     // Pega todas as celulas (td) da linha (tr)

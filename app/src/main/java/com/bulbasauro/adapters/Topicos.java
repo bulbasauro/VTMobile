@@ -8,9 +8,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bulbasauro.abstracts.AbstractActivity;
 import com.bulbasauro.misc.CustomOnTouchListener;
-import com.bulbasauro.misc.RatingSelector;
-import com.bulbasauro.vtmobile.MainActivity;
+import com.bulbasauro.utils.RatingSelector;
 import com.bulbasauro.vtmobile.R;
 import com.daimajia.swipe.SwipeLayout;
 import com.daimajia.swipe.adapters.BaseSwipeAdapter;
@@ -23,13 +23,13 @@ import java.util.HashMap;
  */
 public class Topicos extends BaseSwipeAdapter {
 
-    private MainActivity activity;
+    private AbstractActivity activity;
     private ArrayList<HashMap<String, String>> data;
     private HashMap<String, String> resultp = new HashMap<String, String>();
 
     private int[] colors = new int[]{0xffffffff, 0xffcccccc};
 
-    public Topicos(MainActivity activity, ArrayList<HashMap<String, String>> data) {
+    public Topicos(AbstractActivity activity, ArrayList<HashMap<String, String>> data) {
         this.activity = activity;
         this.data = data;
     }
@@ -41,7 +41,18 @@ public class Topicos extends BaseSwipeAdapter {
 
     @Override
     public View generateView(int position, ViewGroup parent) {
-        View itemView = LayoutInflater.from(activity).inflate(R.layout.listview_topicos, null);
+        View itemView;
+        switch (parent.getId()) {
+            case R.id.listView_pessoal_criei:
+                itemView = LayoutInflater.from(activity).inflate(R.layout.listview_pessoal_criei, null);
+                break;
+            case R.id.listView_pessoal_participei:
+                itemView = LayoutInflater.from(activity).inflate(R.layout.listview_pessoal_participei, null);
+                break;
+            default:
+                itemView = LayoutInflater.from(activity).inflate(R.layout.listview_topicos, null);
+                break;
+        }
         return itemView;
     }
 
@@ -72,7 +83,9 @@ public class Topicos extends BaseSwipeAdapter {
         respostas.setText(resultp.get("topicoRespostas"));
         qtdPaginas.setText(resultp.get("numeroDePaginas"));
         lastPost.setText(resultp.get("topicoLastMessage"));
-        imageViewRating.setImageResource(RatingSelector.definirRating(resultp.get("topicoRating")));
+        if (imageViewRating != null) {
+            imageViewRating.setImageResource(RatingSelector.definirRating(resultp.get("topicoRating")));
+        }
 
         SwipeLayout swipeLayout = (SwipeLayout) view.findViewById(getSwipeLayoutResourceId(position));
         swipeLayout.getSurfaceView().setOnTouchListener(new CustomOnTouchListener(activity, data, position));

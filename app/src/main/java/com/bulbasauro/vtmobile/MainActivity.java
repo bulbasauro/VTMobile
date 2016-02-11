@@ -48,6 +48,17 @@ public class MainActivity extends AbstractNavegacao {
                     Boolean lg = data.getExtras().getBoolean("logado");
                     setLogado(lg);
                     abrirHome();
+                } else if (resultCode == 2) {
+                    String l = getSharedPreferences().getString(getString(R.string.sp_logado), "");
+                    getEditor().remove(getString(R.string.sp_logado));
+                    getEditor().commit();
+                    if (!l.equals("")) {
+                        setLogado(true);
+                    }
+                    atualizarToolbarMenu(l);
+                } else {
+                    getEditor().remove(getString(R.string.sp_logado));
+                    getEditor().commit();
                 }
                 break;
             case 3:
@@ -59,6 +70,22 @@ public class MainActivity extends AbstractNavegacao {
                 if (resultCode == RESULT_FIRST_USER) {
                     Boolean lg = data.getExtras().getBoolean("logado");
                     setLogado(lg);
+                    abrirHome();
+                }
+                break;
+            case 8: // Veio dos Meus Tópicos
+                String l = getSharedPreferences().getString(getString(R.string.sp_logado), "");
+                Boolean h = getSharedPreferences().getBoolean(getString(R.string.sp_home), false);
+                getEditor().remove(getString(R.string.sp_logado));
+                getEditor().remove(getString(R.string.sp_home));
+                getEditor().commit();
+                atualizarToolbarMenu(l);
+                if (!l.equals("")) {
+                    setLogado(true);
+                } else {
+                    setLogado(false);
+                }
+                if (h) {
                     abrirHome();
                 }
                 break;

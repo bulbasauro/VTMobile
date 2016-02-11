@@ -9,7 +9,7 @@ import com.bulbasauro.async.misc.Postador;
 import com.bulbasauro.erros.ExceptionAntiflood;
 import com.bulbasauro.erros.ExceptionMensagemPequena;
 import com.bulbasauro.misc.Comando;
-import com.bulbasauro.misc.RatingSelector;
+import com.bulbasauro.utils.RatingSelector;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;

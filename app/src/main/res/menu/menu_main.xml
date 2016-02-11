@@ -5,9 +5,9 @@
 
     <item
         android:id="@+id/action_home"
+        android:icon="@drawable/home"
         android:orderInCategory="1"
         android:title="@string/home"
-        android:icon="@drawable/home"
         app:showAsAction="always"/>
 
     <item
@@ -24,6 +24,11 @@
         android:id="@+id/action_mp"
         android:orderInCategory="4"
         android:title="@string/mp"/>
+
+    <item
+        android:id="@+id/action_topicos"
+        android:orderInCategory="5"
+        android:title="@string/topicos"/>
 
     <item
         android:id="@+id/action_configuracoes"

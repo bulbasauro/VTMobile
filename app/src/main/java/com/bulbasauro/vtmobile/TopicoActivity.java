@@ -12,7 +12,7 @@ import android.widget.Toast;
 import com.bulbasauro.abstracts.AbstractNavegacao;
 import com.bulbasauro.async.jsoup.JsoupPosts;
 import com.bulbasauro.misc.Comando;
-import com.bulbasauro.misc.RatingSelector;
+import com.bulbasauro.utils.RatingSelector;
 
 public class TopicoActivity extends AbstractNavegacao {
 
@@ -135,25 +135,48 @@ public class TopicoActivity extends AbstractNavegacao {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 2) {
-            if (resultCode == RESULT_OK) {
-                if (getLogado()) {
-                    iniciarLoginSharedPreferences(getPaginaAtual());
-                } else {
-                    abrirPagina(getPaginaAtual(), Comando.ABRIR);
+        switch (requestCode) {
+            case 2:
+                if (resultCode == RESULT_OK) {
+                    if (getLogado()) {
+                        iniciarLoginSharedPreferences(getPaginaAtual());
+                    } else {
+                        abrirPagina(getPaginaAtual(), Comando.ABRIR);
+                    }
                 }
-            }
-        } else if (requestCode == 4) {
-            if (resultCode == RESULT_FIRST_USER) {
-                Boolean lg = data.getExtras().getBoolean("logado");
-                setLogado(lg);
-                abrirHome();
-            }
-        } else if (requestCode == 9) { // Edição de tópico
-            if (resultCode == RESULT_OK) {
-                iniciarLoginSharedPreferences(getPaginaAtual());
-            }
+                break;
+            case 4:
+                if (resultCode == RESULT_FIRST_USER) {
+                    Boolean lg = data.getExtras().getBoolean("logado");
+                    setLogado(lg);
+                    abrirHome();
+                }
+                break;
+            case 9: // Edição de tópicos
+                if (resultCode == RESULT_OK) {
+                    iniciarLoginSharedPreferences(getPaginaAtual());
+                }
+                break;
+            case 8: // Abriu outro tópico através da opção "Meus Tópicos"
+                if (resultCode == 0) {
+                    setResult(2);
+                    finish();
+                }
+                break;
+            default:
+                break;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (getLogado()) {
+            getEditor().putString(getString(R.string.sp_logado), getSupportActionBar().getTitle().toString());
+        } else {
+            getEditor().putString(getString(R.string.sp_logado), "");
+        }
+        getEditor().commit();
+        super.onBackPressed();
     }
 
     @Override
@@ -161,6 +184,13 @@ public class TopicoActivity extends AbstractNavegacao {
         Intent intent = new Intent();
         intent.putExtra("logado", getLogado());
         setResult(RESULT_FIRST_USER, intent);
+        if (getLogado()) {
+            getEditor().putString(getString(R.string.sp_logado), getSupportActionBar().getTitle().toString());
+        } else {
+            getEditor().putString(getString(R.string.sp_logado), "");
+        }
+        getEditor().putBoolean(getString(R.string.sp_home), true);
+        getEditor().commit();
         finish();
     }
 
