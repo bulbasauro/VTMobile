@@ -46,12 +46,12 @@
         android:id="@+id/editText_dialog_nav_pagina"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/textView_dialog_nav_texto"
+        android:layout_centerHorizontal="true"
         android:layout_weight="1"
         android:ems="10"
-        android:inputType="number"
-        android:textSize="16sp"
         android:gravity="center_horizontal"
-        android:layout_below="@+id/textView_dialog_nav_texto"
-        android:layout_centerHorizontal="true"/>
+        android:inputType="number"
+        android:textSize="16sp"/>
 
 </RelativeLayout>

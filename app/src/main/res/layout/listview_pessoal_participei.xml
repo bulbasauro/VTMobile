@@ -42,9 +42,9 @@
                 android:layout_alignParentTop="true"
                 android:gravity="center_vertical"
                 android:text="Título Tópico"
+                android:textColor="?attr/colorPrimary"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="?attr/colorPrimary"/>
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/textView_main_topico_autor"

@@ -5,9 +5,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -98,12 +101,45 @@ public abstract class AbstractMenu extends AbstractActivity {
     protected void abrirLogin() {
         final View view = getLayoutInflater().inflate(R.layout.dialog_login, null);
         AlertDialog.Builder dialog = new AlertDialog.Builder(AbstractMenu.this);
+
+        final EditText editTextEmail = (EditText) view.findViewById(R.id.editText_diag_login_email);
+        final EditText editTextSenha = (EditText) view.findViewById(R.id.editText_diag_login_senha);
+        final CheckBox checkBoxMostrarSenha = (CheckBox) view.findViewById(R.id.checkBox_mostrar_senha);
+
+        Boolean salvar = getSharedPreferences().getBoolean(getString(R.string.sp_salvar_login_senha), false);
+        if (salvar) {
+            editTextEmail.setText(getSharedPreferences().getString(getString(R.string.sp_user_logado_user), ""));
+            editTextSenha.setText(getSharedPreferences().getString(getString(R.string.sp_user_logado_password), ""));
+            editTextEmail.setSelection(editTextEmail.getText().toString().length());
+        }
+
+        checkBoxMostrarSenha.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                checkBoxMostrarSenha.setChecked(isChecked);
+                int pos = editTextSenha.getSelectionStart();
+                if (isChecked) {
+                    editTextSenha.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                } else {
+                    editTextSenha.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                }
+                editTextSenha.setSelection(pos);
+                getEditor().putBoolean(getString(R.string.sp_user_logado_mostrar_senha), isChecked);
+                getEditor().commit();
+            }
+        });
+        Boolean sel = getSharedPreferences().getBoolean(getString(R.string.sp_user_logado_mostrar_senha), false);
+        checkBoxMostrarSenha.setChecked(sel);
+        if (sel) {
+            editTextSenha.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+        } else {
+            editTextSenha.setInputType(InputType.TYPE_CLASS_TEXT| InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        }
+
         dialog.setView(view);
         dialog.setPositiveButton(R.string.diag_entrar, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int whichButton) {
-                EditText editTextEmail = (EditText) view.findViewById(R.id.editText_diag_login_email);
-                EditText editTextSenha = (EditText) view.findViewById(R.id.editText_diag_login_senha);
                 String user = editTextEmail.getText().toString();
                 String pass = editTextSenha.getText().toString();
 

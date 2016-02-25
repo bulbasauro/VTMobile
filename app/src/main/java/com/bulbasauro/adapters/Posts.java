@@ -8,10 +8,12 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bulbasauro.async.misc.Quotador;
+import com.bulbasauro.misc.CustomWebViewClient;
 import com.bulbasauro.misc.Quote;
 import com.bulbasauro.utils.NumberSelector;
 import com.bulbasauro.vtmobile.MandarMpActivity;
@@ -164,9 +166,9 @@ public class Posts extends BaseSwipeAdapter {
                 break;
         }
         StringBuilder sb = new StringBuilder();
-        sb.append("<HTML><HEAD><LINK href=\"" + css + "\" type=\"text/css\" rel=\"stylesheet\"/></HEAD><body>");
+        sb.append("<!DOCTYPE html> <html><head><meta name=\"viewport\" content=\"width=device-width, user-scalable=no\"></meta><link href=\"" + css + "\" type=\"text/css\" rel=\"stylesheet\"></link></head><body>");
         sb.append(txtPost.toString());
-        sb.append("</body></HTML>");
+        sb.append("</body></html>");
         String postagem = sb.toString();
 
         if (postagem.contains("value=\"http://www.youtube.com")) {
@@ -183,22 +185,26 @@ public class Posts extends BaseSwipeAdapter {
 
         }
 
+        post.setVisibility(View.GONE);
+        RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) post.getLayoutParams();
+        CustomWebViewClient c = new CustomWebViewClient(activity, post, params);
+        post.setWebViewClient(c);
+
         post.getSettings().setJavaScriptEnabled(true);
-        //JavaScript javaScript = new JavaScript(activity);
-        //post.addJavascriptInterface(javaScript, "JavaScript");
-        post.loadDataWithBaseURL("file:///android_asset/", postagem, "txt/html", "utf-8", "");
+        post.addJavascriptInterface(c, "MyApp");
+        post.loadDataWithBaseURL("file:///android_asset/", postagem, "text/html", "UTF-8", null);
         postCount.setText(resultp.get("postCount"));
 
         StringBuilder sbAss = new StringBuilder();
-        sbAss.append("<HTML><HEAD><LINK href=\"" + css + "\" type=\"text/css\" rel=\"stylesheet\"/></HEAD><body>");
+        sbAss.append("<html><head><link href=\"" + css + "\" type=\"text/css\" rel=\"stylesheet\"></link></head><body>");
         sbAss.append(assinatura.toString());
-        sbAss.append("</body></HTML>");
+        sbAss.append("</body></html>");
         String ass = sbAss.toString();
         wrapperAssinatura.getSettings().setJavaScriptEnabled(true);
         WebSettings ws = wrapperAssinatura.getSettings();
-        ws.setDefaultFontSize(11);
+        ws.setDefaultFontSize(10);
         wrapperAssinatura.setBackgroundColor(activity.getResources().getColor(R.color.grey));
-        wrapperAssinatura.loadDataWithBaseURL("file:///android_asset/", ass, "txt/html", "utf-8", "");
+        wrapperAssinatura.loadDataWithBaseURL("file:///android_asset/", ass, "text/html", "utf-8", "");
 
         dataHora.setText(resultp.get("publishDate"));
 

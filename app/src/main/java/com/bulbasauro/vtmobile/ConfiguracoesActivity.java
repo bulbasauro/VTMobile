@@ -17,6 +17,7 @@ public class ConfiguracoesActivity extends AbstractActivity {
     private Spinner spinnerToqueSimples;
     private Spinner spinnerToqueDuplo;
     private Switch switchEstilo;
+    private Switch switchSalvarLoginSenha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,8 @@ public class ConfiguracoesActivity extends AbstractActivity {
 
         iniciarSpinnerTema();
         iniciarSpinnerToques();
-        inicializarSwitch();
+        inicializarSwitchEstilo();
+        inicializarSwitchSalvarLoginSenha();
     }
 
     @Override
@@ -72,7 +74,7 @@ public class ConfiguracoesActivity extends AbstractActivity {
         spinnerToqueDuplo.setSelection(selectedDuplo);
     }
 
-    public void inicializarSwitch() {
+    public void inicializarSwitchEstilo() {
         switchEstilo = (Switch) findViewById(R.id.switch_config_estilo);
 
         switchEstilo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -85,5 +87,20 @@ public class ConfiguracoesActivity extends AbstractActivity {
 
         Boolean estiloSocial = getSharedPreferences().getBoolean(getString(R.string.sp_post_estilo), false);
         switchEstilo.setChecked(estiloSocial);
+    }
+
+    public void inicializarSwitchSalvarLoginSenha() {
+        switchSalvarLoginSenha = (Switch) findViewById(R.id.switch_config_salvar);
+
+        switchSalvarLoginSenha.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                getEditor().putBoolean(getString(R.string.sp_salvar_login_senha), isChecked);
+                getEditor().commit();
+            }
+        });
+
+        Boolean salvar = getSharedPreferences().getBoolean(getString(R.string.sp_salvar_login_senha), false);
+        switchSalvarLoginSenha.setChecked(salvar);
     }
 }

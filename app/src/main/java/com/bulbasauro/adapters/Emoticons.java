@@ -75,10 +75,11 @@ public class Emoticons extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 EditText et = (EditText) activity.getCurrentFocus();
+                int pos = et.getSelectionEnd();
                 String texto = et.getText().toString();
-                String textoMod = texto.concat(imageTextoIds[position]);
+                String textoMod = texto.substring(0, pos) + imageTextoIds[position] + texto.substring(pos, texto.length());
                 et.setText(textoMod);
-                et.setSelection(textoMod.length());
+                et.setSelection(pos + imageTextoIds[position].length());
                 Toast.makeText(activity, activity.getString(R.string.adicionado), Toast.LENGTH_SHORT).show();
             }
         });

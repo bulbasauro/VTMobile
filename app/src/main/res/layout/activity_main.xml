@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.bulbasauro.vtmobile.MainActivity">
@@ -12,16 +12,16 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorToolbarTop"
-        app:theme="@style/ToolbarStyle"
+        android:theme="@style/ToolbarStyle"
         app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
     <android.support.design.widget.CoordinatorLayout
-        android:orientation="vertical"
+        android:id="@+id/coordinatorLayout_principal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar_menu"
         android:layout_above="@+id/toolbar_navigation"
-        android:id="@+id/coordinatorLayout_principal">
+        android:layout_below="@+id/toolbar_menu"
+        android:orientation="vertical">
 
         <ListView
             android:id="@+id/listView_main_topicos"
@@ -43,7 +43,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
         android:background="?attr/colorToolbarBottom"
-        app:theme="@style/ToolbarStyle">
+        android:theme="@style/ToolbarStyle">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -53,6 +53,7 @@
             android:layout_alignParentStart="true"
             android:layout_gravity="center_horizontal"
             android:orientation="horizontal">
+
             <ImageButton
                 android:id="@+id/imageButton_main_newTopic"
                 style="@style/Widget.AppCompat.ActionButton"

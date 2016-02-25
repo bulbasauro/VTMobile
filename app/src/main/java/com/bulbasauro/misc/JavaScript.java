@@ -2,6 +2,7 @@ package com.bulbasauro.misc;
 
 import android.content.Intent;
 import android.webkit.JavascriptInterface;
+import android.webkit.WebView;
 
 import com.bulbasauro.vtmobile.TopicoActivity;
 
@@ -11,9 +12,11 @@ import com.bulbasauro.vtmobile.TopicoActivity;
 public class JavaScript {
 
     private TopicoActivity activity;
+    private WebView webView;
 
-    public JavaScript(TopicoActivity activity) {
+    public JavaScript(TopicoActivity activity, WebView webView) {
         this.activity = activity;
+        this.webView = webView;
     }
 
     @JavascriptInterface

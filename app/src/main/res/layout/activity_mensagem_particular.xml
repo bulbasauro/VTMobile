@@ -13,7 +13,7 @@
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorToolbarTop"
         app:popupTheme="@style/AppTheme.PopupOverlay"
-        app:theme="@style/ToolbarStyle"/>
+        android:theme="@style/ToolbarStyle"/>
 
     <TextView
         android:id="@+id/textView_mp_naoLidas"

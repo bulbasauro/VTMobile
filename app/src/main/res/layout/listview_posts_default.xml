@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:orientation="vertical">
+              android:orientation="vertical"
+    >
 
     <com.daimajia.swipe.SwipeLayout
         android:id="@+id/swipeLayout_topico_posts"
@@ -72,7 +73,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp">
 
 
                 <TextView
@@ -151,7 +154,7 @@
                 android:layout_toEndOf="@+id/imageView_topico_avatar"
                 android:layout_toRightOf="@+id/imageView_topico_avatar"
                 android:gravity="left|center_vertical"
-                android:paddingLeft="10sp"
+                android:paddingLeft="10dp"
                 android:textColor="?attr/colorUsername"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
@@ -198,7 +201,10 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignStart="@+id/textView_topico_publishDate"
                 android:layout_below="@+id/textView_topico_postNumber"
-                />
+                android:paddingLeft="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:paddingBottom="10dp"/>
 
             <TextView
                 android:id="@+id/textView_topico_postAvaliacao"

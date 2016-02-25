@@ -61,6 +61,7 @@
     <string name="diag_entrar">Entrar</string>
     <string name="diag_login_email">E-mail:</string>
     <string name="diag_login_senha">Senha:</string>
+    <string name="diag_login_senha_mostrar">Mostrar senha</string>
     <string name="diag_conectar">Conectar</string>
     <string name="diag_emoticon">Caretas e ícones</string>
     <string name="diag_inserir">Inserir</string>
@@ -76,6 +77,7 @@
     <string name="config_post_estilo">Exibir suas mensagens do lado direito</string>
     <string name="config_secao_geral">Geral</string>
     <string name="config_tema">Tema</string>
+    <string name="config_salvar_login_senha">Salvar login e senha</string>
     <string name="config_tema_explanacao">Pode necessitar a reinicialização do aplicativo para tomar total efeito</string>
 
     <!-- SHARED PREFERENCES -->
@@ -83,9 +85,11 @@
     <string name="sp_main_ultima_pagina">sp_main_ultima_pagina</string>
     <string name="sp_user_logado_user">sp_user_logado_user</string>
     <string name="sp_user_logado_password">sp_user_logado_password</string>
+    <string name="sp_user_logado_mostrar_senha">sp_user_logado_mostrar_senha</string>
     <string name="sp_toque_simples">sp_toque_simples</string>
     <string name="sp_toque_duplo">sp_toque_duplo</string>
     <string name="sp_post_estilo">sp_post_estilo</string>
+    <string name="sp_salvar_login_senha">sp_salvar_login_senha</string>
     <string name="sp_antiflood">sp_antiflood</string>
     <string name="sp_tema">sp_tema</string>
     <string name="sp_logado">sp_logado</string>

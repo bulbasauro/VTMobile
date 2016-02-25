@@ -12,33 +12,33 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorToolbarTop"
-        app:popupTheme="@style/AppTheme.PopupOverlay"
-        app:theme="@style/ToolbarStyle"/>
+        android:theme="@style/ToolbarStyle"
+        app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/scrollView"
-        android:layout_below="@+id/toolbar_menu"
-        android:layout_above="@+id/toolbar_postar">
+        android:layout_above="@+id/toolbar_postar"
+        android:layout_below="@+id/toolbar_menu">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/toolbar_menu"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/toolbar_menu">
 
             <RelativeLayout
                 android:id="@+id/relativeLayout_responderTopico_header"
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:background="?attr/colorAccent"
                 android:orientation="vertical"
-                android:padding="10sp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true">
+                android:padding="10sp">
 
                 <TextView
                     android:id="@+id/textView_responderTopico_titulo"
@@ -78,16 +78,16 @@
             </RelativeLayout>
 
             <TextView
+                android:id="@+id/textView_postar_mensagemCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/posts_placeholder_mensagemCount"
-                android:id="@+id/textView_postar_mensagemCount"
-                android:layout_marginLeft="72dp"
-                android:layout_marginStart="72dp"
-                android:textSize="12sp"
                 android:layout_alignBottom="@+id/textView_postar_mensagem"
                 android:layout_alignLeft="@+id/editText_postar_mensagem"
-                android:layout_alignStart="@+id/editText_postar_mensagem"/>
+                android:layout_alignStart="@+id/editText_postar_mensagem"
+                android:layout_marginLeft="72dp"
+                android:layout_marginStart="72dp"
+                android:text="@string/posts_placeholder_mensagemCount"
+                android:textSize="12sp"/>
 
             <TextView
                 android:id="@+id/textView_postar_mensagem"
@@ -114,8 +114,8 @@
                 android:layout_below="@+id/textView_postar_mensagem"
                 android:layout_marginLeft="10sp"
                 android:layout_marginRight="10sp"
-                android:inputType="textCapSentences|textAutoCorrect|textMultiLine"
                 android:gravity="top"
+                android:inputType="textCapSentences|textAutoCorrect|textMultiLine"
                 android:maxLength="15000"/>
 
         </RelativeLayout>
@@ -135,8 +135,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginRight="16sp"
             android:layout_marginEnd="16sp"
+            android:layout_marginRight="16sp"
             android:orientation="horizontal">
 
             <TextView

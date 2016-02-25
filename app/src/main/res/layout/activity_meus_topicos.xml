@@ -12,57 +12,57 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorToolbarTop"
-        app:popupTheme="@style/AppTheme.PopupOverlay"
-        app:theme="@style/ToolbarStyle"/>
+        android:theme="@style/ToolbarStyle"
+        app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
     <RelativeLayout
+        android:id="@+id/relativeLayout_pessoal_001"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar_menu"
-        android:id="@+id/relativeLayout_pessoal_001"
+        android:paddingBottom="12dp"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:paddingTop="12dp"
-        android:paddingBottom="12dp">
+        android:paddingTop="12dp">
 
         <ImageView
+            android:id="@+id/imageView_pessoal_avatar"
             android:layout_width="75dp"
             android:layout_height="75dp"
-            android:id="@+id/imageView_pessoal_avatar"
-            android:src="@drawable/nopic"
-            android:layout_centerVertical="true"/>
+            android:layout_centerVertical="true"
+            android:src="@drawable/nopic"/>
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/textView_pessoal_username"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:paddingLeft="10dp"
-            android:layout_toRightOf="@+id/imageView_pessoal_avatar"/>
-
-        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mensagens: "
+            android:layout_toRightOf="@+id/imageView_pessoal_avatar"
+            android:paddingLeft="10dp"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <TextView
             android:id="@+id/textView_pessoal_mensagens"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/textView_pessoal_username"
             android:layout_toRightOf="@+id/imageView_pessoal_avatar"
-            android:textSize="12sp"
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
+            android:text="Mensagens: "
+            android:textSize="12sp"
             />
 
         <TextView
+            android:id="@+id/textView_pessoal_topicos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tópicos: "
-            android:id="@+id/textView_pessoal_topicos"
-            android:layout_below="@+id/textView_pessoal_mensagens"
             android:layout_alignLeft="@+id/textView_pessoal_mensagens"
+            android:layout_below="@+id/textView_pessoal_mensagens"
             android:paddingLeft="10dp"
-            android:textSize="12sp"
-            android:paddingTop="10dp"/>
+            android:paddingTop="10dp"
+            android:text="Tópicos: "
+            android:textSize="12sp"/>
     </RelativeLayout>
 
     <android.support.design.widget.TabLayout
@@ -71,14 +71,14 @@
         android:layout_height="36dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="false"
+        android:layout_below="@+id/relativeLayout_pessoal_001"
         android:background="?attr/colorFragmentMP"
         app:tabGravity="fill"
         app:tabIndicatorColor="@android:color/white"
         app:tabIndicatorHeight="3dp"
         app:tabMode="fixed"
         app:tabSelectedTextColor="#ffffff"
-        app:tabTextColor="#e0e0e0"
-        android:layout_below="@+id/relativeLayout_pessoal_001"/>
+        app:tabTextColor="#e0e0e0"/>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager_pessoal"

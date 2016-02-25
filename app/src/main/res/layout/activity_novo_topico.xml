@@ -12,8 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorToolbarTop"
-        app:popupTheme="@style/AppTheme.PopupOverlay"
-        app:theme="@style/ToolbarStyle"/>
+        android:theme="@style/ToolbarStyle"
+        app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
     <ScrollView
         android:id="@+id/scrollView2"

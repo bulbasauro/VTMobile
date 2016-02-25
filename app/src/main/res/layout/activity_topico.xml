@@ -12,8 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorToolbarTop"
-        app:popupTheme="@style/AppTheme.PopupOverlay"
-        app:theme="@style/ToolbarStyle"/>
+        android:theme="@style/ToolbarStyle"
+        app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/coordinatorLayout_principal"
@@ -43,7 +43,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
         android:background="?attr/colorToolbarBottom"
-        app:theme="@style/ToolbarStyle">
+        android:theme="@style/ToolbarStyle">
 
         <LinearLayout
             android:layout_width="wrap_content"

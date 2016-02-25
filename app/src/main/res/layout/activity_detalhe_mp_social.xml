@@ -12,8 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorToolbarTop"
-        app:popupTheme="@style/AppTheme.PopupOverlay"
-        app:theme="@style/ToolbarStyle"/>
+        android:theme="@style/ToolbarStyle"
+        app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
     <ScrollView
         android:id="@+id/scrollView_mp_detalhe"
@@ -88,7 +88,8 @@
                     android:layout_height="100px"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
-                    android:layout_alignParentTop="true"/>
+                    android:layout_alignParentTop="true"
+                    android:src="@drawable/nopic"/>
 
                 <TextView
                     android:id="@+id/textView_mp_detalhe_corpo_autor"
@@ -109,7 +110,11 @@
                     android:layout_height="wrap_content"
                     android:layout_alignEnd="@+id/textView_mp_detalhe_corpo_autor"
                     android:layout_alignLeft="@+id/textView_mp_detalhe_corpo_autor"
-                    android:layout_below="@+id/textView_mp_detalhe_corpo_autor"/>
+                    android:layout_below="@+id/textView_mp_detalhe_corpo_autor"
+                    android:paddingRight="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingBottom="10dp"/>
             </RelativeLayout>
 
         </RelativeLayout>

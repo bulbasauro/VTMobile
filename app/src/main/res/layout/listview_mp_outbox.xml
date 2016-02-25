@@ -17,8 +17,8 @@
             android:layout_height="match_parent"
             android:layout_gravity="right"
             android:background="?attr/colorWrapperMP"
-            android:orientation="horizontal"
             android:gravity="center_vertical"
+            android:orientation="horizontal"
             android:weightSum="1">
 
             <ImageView

@@ -2,8 +2,8 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              tools:context="com.bulbasauro.fragments.MpInboxFragment"
-              android:gravity="top">
+              android:gravity="top"
+              tools:context="com.bulbasauro.fragments.MpInboxFragment">
 
     <ListView
         android:id="@+id/listView_mp_inbox"

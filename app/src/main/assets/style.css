@@ -1,3 +1,10 @@
+body {
+    width:100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
 td.quote {
     background-color: #fff;
     border: 1px solid #008aa7;

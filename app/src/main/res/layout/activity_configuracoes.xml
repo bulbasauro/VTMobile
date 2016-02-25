@@ -12,8 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorToolbarTop"
-        app:popupTheme="@style/AppTheme.PopupOverlay"
-        app:theme="@style/ToolbarStyle"/>
+        android:theme="@style/ToolbarStyle"
+        app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
     <ScrollView
         android:id="@+id/scrollView_configuracoes"
@@ -38,19 +38,19 @@
                 android:textStyle="bold"/>
 
             <LinearLayout
-                android:orientation="horizontal"
+                android:id="@+id/linearLayout_004"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/linearLayout_004"
+                android:layout_below="@+id/textView_config_secao_geral"
+                android:orientation="horizontal"
                 android:paddingLeft="12dp"
-                android:paddingRight="12dp"
-                android:layout_below="@+id/textView_config_secao_geral">
+                android:paddingRight="12dp">
 
                 <TextView
+                    android:id="@+id/textView_tema"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/config_tema"
-                    android:id="@+id/textView_tema"
                     android:textColor="@android:color/black"
                     android:textSize="16sp"
                     android:textStyle="bold"/>
@@ -59,50 +59,71 @@
                     android:id="@+id/spinner_tema"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="end|right"
                     android:prompt="@string/spinner_config_prompt_02"
                     android:spinnerMode="dropdown"
-                    android:gravity="end|right"
                     />
             </LinearLayout>
 
             <TextView
+                android:id="@+id/textView_config_tema_explanacao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/config_tema_explanacao"
-                android:id="@+id/textView_config_tema_explanacao"
                 android:layout_below="@+id/linearLayout_004"
+                android:paddingBottom="12dp"
                 android:paddingLeft="12dp"
                 android:paddingRight="12dp"
-                android:textSize="16sp"
-                android:paddingBottom="12dp"/>
+                android:text="@string/config_tema_explanacao"
+                android:textSize="16sp"/>
 
             <ImageView
+                android:id="@+id/imageView_corte_003"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:id="@+id/imageView_corte_003"
+                android:layout_below="@+id/textView_config_tema_explanacao"
+                android:background="@color/greyDark"/>
+
+            <Switch
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/config_salvar_login_senha"
+                android:id="@+id/switch_config_salvar"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:layout_below="@+id/imageView_corte_003"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:paddingBottom="12dp"
+                android:paddingTop="12dp"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:id="@+id/imageView_corte_004"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
                 android:background="@color/greyDark"
-                android:layout_below="@+id/textView_config_tema_explanacao"/>
+                android:layout_alignBottom="@+id/switch_config_salvar"/>
 
             <TextView
                 android:id="@+id/textView_config_secao_topicos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/imageView_corte_004"
                 android:layout_margin="12dp"
                 android:text="@string/config_secao_topicos"
                 android:textColor="?attr/colorPrimary"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_below="@+id/imageView_corte_003"/>
+                android:textStyle="bold"/>
 
             <LinearLayout
+                android:id="@+id/linearLayout_001"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/textView_config_secao_topicos"
                 android:orientation="horizontal"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp"
                 android:paddingBottom="12dp"
-                android:id="@+id/linearLayout_001">
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp">
 
                 <TextView
                     android:id="@+id/textView_toque_simples"
@@ -118,80 +139,80 @@
                     android:id="@+id/spinner_toques_simples"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="end|right"
                     android:prompt="@string/spinner_config_prompt_01"
                     android:spinnerMode="dropdown"
-                    android:gravity="end|right"
                     />
             </LinearLayout>
 
             <ImageView
+                android:id="@+id/imageView_corte_001"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:id="@+id/imageView_corte_001"
-                android:background="@color/greyDark"
-                android:layout_below="@+id/linearLayout_001"/>
+                android:layout_below="@+id/linearLayout_001"
+                android:background="@color/greyDark"/>
 
             <LinearLayout
-                android:orientation="horizontal"
+                android:id="@+id/linearLayout_002"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/imageView_corte_001"
-                android:id="@+id/linearLayout_002"
+                android:orientation="horizontal"
                 android:padding="12dp">
 
                 <TextView
+                    android:id="@+id/textView_toque_duplo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/config_toque_duplo"
-                    android:id="@+id/textView_toque_duplo"
                     android:textColor="@android:color/black"
-                    android:textStyle="bold"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
 
                 <Spinner
+                    android:id="@+id/spinner_toques_duplo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/spinner_toques_duplo"
                     android:gravity="end|right"
                     android:spinnerMode="dropdown"/>
             </LinearLayout>
 
             <ImageView
+                android:id="@+id/imageView_corte_002"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:id="@+id/imageView_corte_002"
                 android:layout_below="@+id/linearLayout_002"
                 android:background="@color/greyDark"/>
 
             <TextView
+                android:id="@+id/textView_config_secao_posts"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/config_secao_posts"
-                android:id="@+id/textView_config_secao_posts"
                 android:layout_below="@+id/imageView_corte_002"
                 android:layout_margin="12dp"
+                android:text="@string/config_secao_posts"
                 android:textColor="?attr/colorPrimary"
-                android:textStyle="bold"
-                android:textSize="18sp"/>
+                android:textSize="18sp"
+                android:textStyle="bold"/>
 
             <LinearLayout
-                android:orientation="horizontal"
+                android:id="@+id/linearLayout_003"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/textView_config_secao_posts"
-                android:id="@+id/linearLayout_003"
+                android:orientation="horizontal"
+                android:paddingBottom="12dp"
                 android:paddingLeft="12dp"
-                android:paddingRight="12dp"
-                android:paddingBottom="12dp">
+                android:paddingRight="12dp">
 
                 <Switch
+                    android:id="@+id/switch_config_estilo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/config_post_estilo"
-                    android:id="@+id/switch_config_estilo"
-                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
                     android:textSize="16sp"
-                    android:textColor="@android:color/black"/>
+                    android:textStyle="bold"/>
             </LinearLayout>
 
         </RelativeLayout>
