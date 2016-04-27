@@ -3,10 +3,10 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         config {
-            keyAlias 'bulbasauroApp'
-            keyPassword 'vulpes1747'
-            storeFile file('C:/Users/Xã/Dropbox/Documentos/android_dev_keystore.jks')
-            storePassword 'vulpes1747'
+            keyAlias 'key'
+            keyPassword 'password'
+            storeFile file('keystore path')
+            storePassword 'password'
         }
     }
     compileSdkVersion 22
